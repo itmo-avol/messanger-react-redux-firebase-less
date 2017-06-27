@@ -1,4 +1,5 @@
-@import "./node_modules/normalize.css/normalize.css";
+@import (multiple) "./vars/sizes.less";
+@import (multiple) "./vars/colors.less";
 
 *
 {
@@ -11,8 +12,8 @@
 p.header
 {
 	margin: 5px;
-	font-size: 11px;
-	color: gray;
+	font-size: @small-font;
+	color: @clr-border;
 }
 
 p.messageUser
@@ -23,8 +24,8 @@ p.messageUser
 p.messagetime
 {
 	float: right;
-	color: gray;
-	font-size: 11px;
+	color: @clr-border;
+	font-size: @small-font;
 }
 
 p.messageText
@@ -35,7 +36,7 @@ p.messageText
 img.avatar
 {
 	float: left;
-    margin-right: 10px;
+    margin-right: @standart-gap;
 	width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -46,6 +47,20 @@ p.userName
 	float: left;
 }
 
+div.chatInfo    
+{
+	float: right;
+    width: 100%;
+    margin-left: -50px;
+    padding-left: 50px;
+
+	p.messageText
+	{
+		overflow: hidden;
+		white-space: nowrap;
+	}
+}
+
 html 
 {
 	height: 100%;
@@ -54,8 +69,6 @@ html
 	{
 		height: 100%;
 
-		@import (multiple) "./vars/sizes.less";
-
 		
 		div.content
 		{
@@ -63,9 +76,9 @@ html
 
 			div.auth
 			{
-				padding: 10px;
-    			height: 7%;
-				background: royalblue;
+				padding: @standart-gap;
+    			height: 50px;
+				background: @clr-header;
 				color: white;
 
 				button
@@ -83,33 +96,36 @@ html
 
 			div.info
 			{
-				height: 93%;
-    			font-size: 13px;
+				height: 100%;
+    			font-size: @normal-font;
+				margin-top: -50px;
+				padding-top: 50px;
 
 				div.left-side
 				{
-					width: 33%;
+					width: 35%;
 					float: left;
-					border-right: 1px gray solid;
 					height: 100%;
+					overflow-y: scroll;
+					border-right: 1px @clr-border solid;
 
 					ul
 					{
 						li 
 						{
 							cursor: pointer;
-							padding: 10px;
+							padding: @standart-gap;
 							height: 60px;
 						}
 
 						li.currentChat
 						{
-							background: #fafafa;
+							background: @clr-msg;
 						}
 
 						li:hover
 						{
-							background: #fafafa;
+							background: @clr-msg;
 						}
 					}
 
@@ -117,27 +133,43 @@ html
 
 				div.right-side
 				{
-					width: 67%;
+					width: 65%;
 					float: left;
 					position: relative;
 					height: 100%;
-					padding-top: 10px; 
 
 					ul 
 					{
+						overflow-y: scroll;
+    					height: 90%;
+						padding-top: @standart-gap;
+
 						li
 						{
 							clear: both;
 							float: left;
 							display: block;
 							max-width: 90%;
-							padding: 10px;
-							background: #fafafa;
+							padding: @standart-gap;
+							background: @clr-msg;
 							list-style: none;
-							margin-bottom: 10px;
+							margin-bottom: @standart-gap;
 							min-width: 60%;
-							margin-left: 10px;
-							margin-right: 10px;
+							margin-left: @standart-gap;
+							margin-right: @standart-gap;
+							
+							p.messageText
+							{
+								word-wrap: break-word;
+								white-space: pre-wrap;
+							}
+
+							p.messageUser
+							{
+								color: @clr-border;
+								font-size: @small-font;
+							}
+
 						}
 
 						li.yourMessage
@@ -153,18 +185,19 @@ html
 						width: 100%;
 						clear: both;
 						bottom: 0;
-						padding: 10px;
+						padding: 15px;
+						height: 10%;
 
 						input
 						{
 							padding: 5px;
 							width: 90%;
-							border: 1px gray solid;
+							border: 1px @clr-border solid;
 						}
 						button
 						{
 							padding: 5px;
-							border: 1px gray solid;
+							border: 1px @clr-border solid;
 							color: black;
 							background: none;
 							width: 10%;
@@ -179,6 +212,3 @@ html
 		}
 	}
 }
-
-
-@import "./main.less";

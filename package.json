@@ -12,7 +12,6 @@
     "gulp-plumber": "^1.1.0",
     "less": "^2.7.2",
     "less-plugin-autoprefix": "^1.5.1",
-    "normalize.css": "^7.0.0",
     "preact": "^8.1.0",
     "preact-small-redux": "^1.0.0",
     "small-redux": "^1.0.0",

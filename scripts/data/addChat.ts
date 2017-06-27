@@ -1,6 +1,8 @@
 import {StateChat} from '../Store/State';
 import getChatsRef from './getChatsRef';
 import {getUserRef} from './getUsersRef';
+import {setCurrentChat} from '../Store/creators';
+import {dispatch} from '../Store/index';
 
 function addChat( currentUserId: string, otherUserId:string ): void
 {
@@ -14,13 +16,12 @@ function addChat( currentUserId: string, otherUserId:string ): void
     }
 	
 	currentUserRef.once("value", function(snapshot1) {
-          var item1 = snapshot1.val();
+          const item1 = snapshot1.val();
 
 		  otherUserRef.once("value", function(snapshot2) {
-				var item2 = snapshot2.val();
-
-				chatsRef.push()
-				.set(
+				const item2 = snapshot2.val();
+				const newChatRef = chatsRef.push();
+				newChatRef.set(
 					{
 						chatUsers: [
 							{
@@ -34,7 +35,10 @@ function addChat( currentUserId: string, otherUserId:string ): void
 						],
 						messages : [],
 					} as Partial<StateChat>,
-				);	
+				);
+
+				const id:string = newChatRef.key !== null ? newChatRef.key : "";
+				dispatch( setCurrentChat( {id} ) );	
 			});
         });
 }

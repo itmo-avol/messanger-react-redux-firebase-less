@@ -111,7 +111,7 @@ function subscribeToChats( uid: string ): void
 			{
 				const {chatUsers, messages} = value[key] as StateChat;
 
-				let arrayOfMessages = messages === undefined || messages === null ? [] : Object.keys(messages).map(key => messages[key]);
+				const arrayOfMessages = messages === undefined || messages === null ? [] : Object.keys(messages).map(key => messages[key]);
 				
 				if ( [].concat.apply( [], chatUsers.map( ( user: StateUser ) => (user.uid)  ) )
 					

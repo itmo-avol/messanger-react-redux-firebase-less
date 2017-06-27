@@ -28,7 +28,7 @@ class ChatList extends SubscribedComponent<State, ChatListProps, ChatListState>
 		
 		return (
 			<ul>
-				<p class="header">Чаты</p>
+				<p class="header">Chats</p>
 				{
 					chats.map(
 						( chat: StateChat ) => {
@@ -45,10 +45,12 @@ class ChatList extends SubscribedComponent<State, ChatListProps, ChatListState>
 									onClick={() => this.onChatClick( chat.id )}
 									class={chat.id === currentChat.id ? "currentChat" : ""}
 								>
-								<p class="messageUser">{chat.chatUsers[showUser].name}</p>
-								<p class="messagetime">{showMessage ? lastMessage.timestamp : ""}</p>
-								<p class="messageText">{showMessage && lastMessage.fromUser.uid  === user.uid ? "you: " : ""}
-								{showMessage ? lastMessage.text : ""}</p>
+									<img src={chat.chatUsers[showUser].photoURL} alt="avatar" class="avatar"/>
+									<div class="chatInfo">	
+										<p class="messageUser">{chat.chatUsers[showUser].name}</p>
+										<p class="messagetime">{showMessage ? lastMessage.timestamp : ""}</p>
+										<p class="messageText">{showMessage && lastMessage.fromUser.uid  === user.uid ? "you: " + lastMessage.text: "" + lastMessage.text}</p>
+									</div>
 								</li>);
 							}
 							else {
@@ -57,6 +59,7 @@ class ChatList extends SubscribedComponent<State, ChatListProps, ChatListState>
 									onClick={() => this.onChatClick( chat.id )}
 									class={chat.id === currentChat.id ? "currentChat" : ""}
 								>
+								<img src={chat.chatUsers[showUser].photoURL} alt="avatar" class="avatar"/>	
 								<p class="messageUser">{chat.chatUsers[showUser].name}</p>
 								</li>);
 							}

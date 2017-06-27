@@ -12,8 +12,8 @@ function SendTextMessage( currentChat: StateCurrentChat, text: string, user: Use
 		return;
 	}
 
-	var currentdate = new Date(); 
-	var datetime = "" + /*currentdate.getDate() + "/"
+	const currentdate = new Date(); 
+	const datetime = "" + /*currentdate.getDate() + "/"
                 + (currentdate.getMonth()+1)  + "/" 
                 + currentdate.getFullYear() + " "  */
                 + currentdate.getHours() + ":"  
@@ -21,19 +21,17 @@ function SendTextMessage( currentChat: StateCurrentChat, text: string, user: Use
                 + currentdate.getSeconds();
 
 				
-
-	mesRef.push()
-		.set(
-			{
-				text,
-				timestamp: datetime,
-				fromUser: {
-					uid: user.uid,
-					photoURL: user.email,
-					name: user.displayName,
-				},
-			} as Partial<Message>,
-		);
+	mesRef.push().set(
+		{
+			text,
+			timestamp: datetime,
+			fromUser: {
+				uid: user.uid,
+				photoURL: user.email,
+				name: user.displayName,
+			},
+		} as Partial<Message>,
+	);
 }
 
 export {

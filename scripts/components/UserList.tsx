@@ -26,7 +26,7 @@ class UserList extends SubscribedComponent<State, UserListProps, UserListState>
 
 		return (
 			<ul class="userList">
-				<p class="header">Контакты</p>
+				<p class="header">Contacts</p>
 				{
 					filterUsers.map(
 						( client: StateUser ) => (

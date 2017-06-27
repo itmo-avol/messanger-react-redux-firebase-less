@@ -28,8 +28,6 @@ class Auth extends SubscribedComponent<State, AuthProps, AuthState>
 	 */
 	public render( _props: AuthProps, {user}: AuthState ): JSX.Element
 	{
-		console.log(this.state);
-
 		return (
 			<div class="auth">
 				{
