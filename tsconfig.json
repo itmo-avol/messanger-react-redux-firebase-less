@@ -1,0 +1,29 @@
+{
+	"compilerOptions": {
+		"module": "es2015",
+		"moduleResolution": "node",
+		"target": "es2015",
+		"lib": ["es2016", "dom"],
+		"alwaysStrict": true,
+		"noImplicitAny": false,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"strictNullChecks": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noEmitOnError": true,
+		"newLine": "LF",
+		"forceConsistentCasingInFileNames": true,
+		"removeComments": true,
+		"declaration": false,
+		"sourceMap": true,
+		"importHelpers": true,
+		"jsx": "react",
+		"jsxFactory": "h",
+		"outDir": "./public/scripts"
+	},
+	"files": [
+		"scripts/index.ts"
+	]
+}

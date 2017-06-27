@@ -1,0 +1,33 @@
+{
+  "name": "preact-todo-redux-subclass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "css-mqpacker": "^5.0.1",
+    "firebase": "^4.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-less": "^3.3.0",
+    "gulp-plumber": "^1.1.0",
+    "less": "^2.7.2",
+    "less-plugin-autoprefix": "^1.5.1",
+    "normalize.css": "^7.0.0",
+    "preact": "^8.1.0",
+    "preact-small-redux": "^1.0.0",
+    "small-redux": "^1.0.0",
+    "ts-loader": "^2.0.3",
+    "tslib": "^1.6.1",
+    "typescript": "^2.3.2",
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "build:less": "gulp build:less",
+    "watch:less": "gulp watch:less"
+  },
+  "author": "AChromov",
+  "license": "MIT"
+}
