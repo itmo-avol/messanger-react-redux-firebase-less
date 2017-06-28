@@ -4,6 +4,18 @@
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
+div.flag {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: royalblue;
+  margin-top: 5px;
+  float: right;
+  margin-right: 5px;
+}
+div.flag.none {
+  display: none;
+}
 p.header {
   margin: 5px;
   font-size: 11px;
@@ -109,7 +121,7 @@ html body div.content div.info div.right-side ul li {
   background: #f1f1f1;
   list-style: none;
   margin-bottom: 10px;
-  min-width: 60%;
+  min-width: 50%;
   margin-left: 10px;
   margin-right: 10px;
 }

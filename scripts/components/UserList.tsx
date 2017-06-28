@@ -3,6 +3,7 @@ import {SubscribedComponent} from '../Store/index';
 import State, {StateUser, StateChat} from '../Store/State';
 import {User} from 'firebase/app';
 import {addChat} from '../data/addChat';
+import UserComponent from './User';
 
 type UserListProps = object;
 
@@ -30,13 +31,11 @@ class UserList extends SubscribedComponent<State, UserListProps, UserListState>
 				{
 					filterUsers.map(
 						( client: StateUser ) => (
-							<li
+							<UserComponent
+								name={client.name}
+								photoURL={client.photoURL}
 								onClick={() => this.onUserClick( user === null ? '' : user.uid, client.uid )}
-							> 
-								<img src={client.photoURL} alt="avatar" class="avatar"/>	
-								<p class="userName">{client.name}</p>
-
-							</li>
+							/>
 						),
 					)
 				}

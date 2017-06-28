@@ -20,10 +20,10 @@ class SendMessage extends SubscribedComponent<State, SendMessageProps, SendMessa
 	{
 		const {currentChat} = this.state;
 
+		if (currentChat.id === '') 
+					return <div> </div>;
+
 		return (
-			currentChat.id !== ''
-			?
-			(
 				<form 
 						action=''
 						onSubmit={this.onSubmit}>
@@ -36,11 +36,6 @@ class SendMessage extends SubscribedComponent<State, SendMessageProps, SendMessa
 						Send
 					</button>
 				</form>
-			)
-			:
-			(
-				<div></div>
-			)
 		);
 	}
 

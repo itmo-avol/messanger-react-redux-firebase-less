@@ -1,8 +1,11 @@
 import {h} from 'preact';
-import {dispatch, SubscribedComponent} from '../Store/index';
-import State, {StateChat, Message, StateCurrentChat} from '../Store/State';
+import {SubscribedComponent} from '../Store/index';
+import State, {StateChat, StateCurrentChat, Message} from '../Store/State';
 import {User} from 'firebase/app';
+import ChatComponent from './Chat';
 import {setCurrentChat} from '../Store/creators';
+import {dispatch} from '../Store/index';
+import changeChatMessages from '../data/changeChatMessages';
 
 type ChatListProps = object;
 
@@ -25,6 +28,8 @@ class ChatList extends SubscribedComponent<State, ChatListProps, ChatListState>
 		{
 			return <div> </div>;
 		}
+
+		this.readMessagesFromCurrentChat ( currentChat.id );
 		
 		return (
 			<ul>
@@ -32,38 +37,13 @@ class ChatList extends SubscribedComponent<State, ChatListProps, ChatListState>
 				{
 					chats.map(
 						( chat: StateChat ) => {
-							let showUser: number = user.uid !== chat.chatUsers[0].uid ? 0 : 1, 
-								showMessage: boolean = chat.messages.length !== 0;
-
-							if (showMessage) {
-								let messagesLength: number = chat.messages.length - 1;
-								let lastMessage:Message = chat.messages[messagesLength ];
-
-
-								return	(
-								<li
+							return (
+								<ChatComponent 
+									chat={chat}
+									user={user}
+									liClass={chat.id === currentChat.id ? "currentChat" : ""}
 									onClick={() => this.onChatClick( chat.id )}
-									class={chat.id === currentChat.id ? "currentChat" : ""}
-								>
-									<img src={chat.chatUsers[showUser].photoURL} alt="avatar" class="avatar"/>
-									<div class="chatInfo">	
-										<p class="messageUser">{chat.chatUsers[showUser].name}</p>
-										<p class="messagetime">{showMessage ? lastMessage.timestamp : ""}</p>
-										<p class="messageText">{showMessage && lastMessage.fromUser.uid  === user.uid ? "you: " + lastMessage.text: "" + lastMessage.text}</p>
-									</div>
-								</li>);
-							}
-							else {
-								return	(
-								<li
-									onClick={() => this.onChatClick( chat.id )}
-									class={chat.id === currentChat.id ? "currentChat" : ""}
-								>
-								<img src={chat.chatUsers[showUser].photoURL} alt="avatar" class="avatar"/>	
-								<p class="messageUser">{chat.chatUsers[showUser].name}</p>
-								</li>);
-							}
-
+								/>);
 						}
 					)
 				}
@@ -71,6 +51,35 @@ class ChatList extends SubscribedComponent<State, ChatListProps, ChatListState>
 		);
 		
 		
+	}
+
+	private readMessagesFromCurrentChat ( id: string ):void 
+	{
+		const {chats, user} = this.state;
+		let messages:Message[] = [];
+
+		if( !user)
+			return;
+
+		chats.forEach( (chat:StateChat, index:number) => {
+			if (chat.id == id)
+				chats[index].messages.forEach ( (message:Message) => { 
+					messages.push( {
+						text: message.text,
+						timestamp: message.timestamp,
+						fromUser: message.fromUser,
+						isRead: message.fromUser.uid !== user.uid ? true : message.isRead,
+					} as Message ) } );
+		} );
+
+		changeChatMessages ( id, messages );
+
+	}
+
+	private onChatClick = ( id: string ): void =>
+	{
+		this.render();
+		dispatch( setCurrentChat( {id} ) );
 	}
 	
 	protected storeStateChanged( {chats, user, currentChat}: State ): void
@@ -85,11 +94,6 @@ class ChatList extends SubscribedComponent<State, ChatListProps, ChatListState>
 		}
 		
 		this.setState( {chats, user, currentChat} );
-	}
-	
-	private onChatClick = ( id: string ): void =>
-	{
-		dispatch( setCurrentChat( {id} ) );
 	}
 	
 	private getVisibileChats(): StateChat[]

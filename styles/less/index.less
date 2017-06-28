@@ -9,6 +9,22 @@
 	font-family: 'Roboto', sans-serif;
 }
 
+div.flag
+{
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: @clr-header;
+	margin-top: 5px;
+	float: right;
+	margin-right: 5px; 
+
+	&.none
+	{
+		display: none;
+	}
+}
+
 p.header
 {
 	margin: 5px;
@@ -154,7 +170,7 @@ html
 							background: @clr-msg;
 							list-style: none;
 							margin-bottom: @standart-gap;
-							min-width: 60%;
+							min-width: 50%;
 							margin-left: @standart-gap;
 							margin-right: @standart-gap;
 							

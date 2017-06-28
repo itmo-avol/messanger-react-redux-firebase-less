@@ -25,6 +25,7 @@ function SendTextMessage( currentChat: StateCurrentChat, text: string, user: Use
 		{
 			text,
 			timestamp: datetime,
+			isRead: false,
 			fromUser: {
 				uid: user.uid,
 				photoURL: user.email,

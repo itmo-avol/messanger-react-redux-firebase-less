@@ -63,50 +63,11 @@
 /******/ 	__webpack_require__.p = "/scripts/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 37);
+/******/ 	return __webpack_require__(__webpack_require__.s = 41);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/*! @license Firebase v4.1.2
-Build: rev-4a4cc92
-Terms: https://firebase.google.com/terms/ */
-
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _firebase_app = __webpack_require__(15);
-
-// Export a single instance of firebase app
-var firebase = (0, _firebase_app.createFirebaseNamespace)(); /**
-                                                             * Copyright 2017 Google Inc.
-                                                             *
-                                                             * Licensed under the Apache License, Version 2.0 (the "License");
-                                                             * you may not use this file except in compliance with the License.
-                                                             * You may obtain a copy of the License at
-                                                             *
-                                                             *   http://www.apache.org/licenses/LICENSE-2.0
-                                                             *
-                                                             * Unless required by applicable law or agreed to in writing, software
-                                                             * distributed under the License is distributed on an "AS IS" BASIS,
-                                                             * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-                                                             * See the License for the specific language governing permissions and
-                                                             * limitations under the License.
-                                                             */
-// Import the createFirebaseNamespace function
-exports.default = firebase;
-module.exports = exports['default'];
-//# sourceMappingURL=app.js.map
-
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 !function() {
@@ -511,6 +472,45 @@ module.exports = exports['default'];
 //# sourceMappingURL=preact.js.map
 
 /***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/*! @license Firebase v4.1.2
+Build: rev-4a4cc92
+Terms: https://firebase.google.com/terms/ */
+
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _firebase_app = __webpack_require__(15);
+
+// Export a single instance of firebase app
+var firebase = (0, _firebase_app.createFirebaseNamespace)(); /**
+                                                             * Copyright 2017 Google Inc.
+                                                             *
+                                                             * Licensed under the Apache License, Version 2.0 (the "License");
+                                                             * you may not use this file except in compliance with the License.
+                                                             * You may obtain a copy of the License at
+                                                             *
+                                                             *   http://www.apache.org/licenses/LICENSE-2.0
+                                                             *
+                                                             * Unless required by applicable law or agreed to in writing, software
+                                                             * distributed under the License is distributed on an "AS IS" BASIS,
+                                                             * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+                                                             * See the License for the specific language governing permissions and
+                                                             * limitations under the License.
+                                                             */
+// Import the createFirebaseNamespace function
+exports.default = firebase;
+module.exports = exports['default'];
+//# sourceMappingURL=app.js.map
+
+
+/***/ }),
 /* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -521,7 +521,7 @@ module.exports = exports['default'];
 /* unused harmony export getState */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SubscribedComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact_small_redux__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_small_redux__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_small_redux__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reducer__ = __webpack_require__(26);
 
 
@@ -543,7 +543,7 @@ const SubscribedComponent = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_pr
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return setUsers; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return setChats; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return setCurrentChat; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Actions__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Actions__ = __webpack_require__(8);
 
 function setChats(chats) {
     return {
@@ -574,6 +574,28 @@ function setCurrentChat(currentChat) {
 
 /***/ }),
 /* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getChatsRef; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getChatRef; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase_app__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_firebase_app__);
+
+function getChatsRef() {
+    return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_firebase_app__["database"])().ref(`/chats/`);
+}
+function getChatRef(chatId) {
+    if (!chatId) {
+        return null;
+    }
+    return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_firebase_app__["database"])().ref(`/chats/${chatId}`);
+}
+
+
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports) {
 
 var g;
@@ -600,7 +622,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -647,10 +669,10 @@ var local = exports.local = {
 };
 //# sourceMappingURL=shared_promise.js.map
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -663,7 +685,7 @@ var local = exports.local = {
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -678,35 +700,13 @@ const Actions = {
 
 
 /***/ }),
-/* 8 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getChatsRef; });
-/* unused harmony export getChatRef */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase_app__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_firebase_app__);
-
-function getChatsRef() {
-    return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_firebase_app__["database"])().ref(`/chats/`);
-}
-function getChatRef(chatId) {
-    if (!chatId) {
-        return null;
-    }
-    return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_firebase_app__["database"])().ref(`/chats/${chatId}`);
-}
-
-
-
-/***/ }),
 /* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getUsersRef; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getUserRef; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase_app__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase_app__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_firebase_app__);
 
 function getUsersRef() {
@@ -728,13 +728,13 @@ function getUserRef(uid) {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoot; });
 /* unused harmony export TodoApp */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_preact__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Auth__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__UserList__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ChatList__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__SendMessage__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__MessageList__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__UserList__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ChatList__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__SendMessage__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__MessageList__ = __webpack_require__(31);
 
 
 
@@ -761,7 +761,7 @@ const AppRoot = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase_app__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase_app__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_firebase_app__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase_auth__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase_auth___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_firebase_auth__);
@@ -787,12 +787,12 @@ __WEBPACK_IMPORTED_MODULE_0_firebase_app__["initializeApp"](config);
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return subscribe; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase_app__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase_app__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_firebase_app__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Store_creators__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Store_index__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__getUsersRef__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__getChatsRef__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__getChatsRef__ = __webpack_require__(4);
 
 
 
@@ -1133,7 +1133,7 @@ var _subscribe = __webpack_require__(16);
 
 var _errors = __webpack_require__(14);
 
-var _shared_promise = __webpack_require__(5);
+var _shared_promise = __webpack_require__(6);
 
 var _deep_copy = __webpack_require__(13);
 
@@ -1521,7 +1521,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 exports.createSubscribe = createSubscribe;
 exports.async = async;
 
-var _shared_promise = __webpack_require__(5);
+var _shared_promise = __webpack_require__(6);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -1792,7 +1792,7 @@ function noop() {
 Build: rev-4a4cc92
 Terms: https://firebase.google.com/terms/ */
 
-var firebase = __webpack_require__(0);
+var firebase = __webpack_require__(1);
 (function(){(function(){var h,aa=aa||{},k=this,m=function(a){return"string"==typeof a},ba=function(a){return"boolean"==typeof a},ca=function(a){return"number"==typeof a},da=function(){},ea=function(a){var b=typeof a;if("object"==b)if(a){if(a instanceof Array)return"array";if(a instanceof Object)return b;var c=Object.prototype.toString.call(a);if("[object Window]"==c)return"object";if("[object Array]"==c||"number"==typeof a.length&&"undefined"!=typeof a.splice&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("splice"))return"array";
 if("[object Function]"==c||"undefined"!=typeof a.call&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("call"))return"function"}else return"null";else if("function"==b&&"undefined"==typeof a.call)return"object";return b},fa=function(a){return null===a},ga=function(a){return"array"==ea(a)},ha=function(a){var b=ea(a);return"array"==b||"object"==b&&"number"==typeof a.length},p=function(a){return"function"==ea(a)},ia=function(a){var b=typeof a;return"object"==b&&null!=a||"function"==
 b},ja=function(a,b,c){return a.call.apply(a.bind,arguments)},ka=function(a,b,c){if(!a)throw Error();if(2<arguments.length){var d=Array.prototype.slice.call(arguments,2);return function(){var c=Array.prototype.slice.call(arguments);Array.prototype.unshift.apply(c,d);return a.apply(b,c)}}return function(){return a.apply(b,arguments)}},q=function(a,b,c){q=Function.prototype.bind&&-1!=Function.prototype.bind.toString().indexOf("native code")?ja:ka;return q.apply(null,arguments)},la=function(a,b){var c=
@@ -2061,7 +2061,7 @@ Y(yg.prototype,{verifyPhoneNumber:{name:"verifyPhoneNumber",a:[V("phoneNumber"),
 (function(){if("undefined"!==typeof firebase&&firebase.INTERNAL&&firebase.INTERNAL.registerService){var a={Auth:T,Error:N};Z(a,"EmailAuthProvider",tg,[]);Z(a,"FacebookAuthProvider",ig,[]);Z(a,"GithubAuthProvider",kg,[]);Z(a,"GoogleAuthProvider",mg,[]);Z(a,"TwitterAuthProvider",og,[]);Z(a,"OAuthProvider",P,[V("providerId")]);Z(a,"PhoneAuthProvider",yg,[kk()]);Z(a,"RecaptchaVerifier",Kh,[X(V(),jk(),"recaptchaContainer"),W("recaptchaParameters",!0),lk()]);firebase.INTERNAL.registerService("auth",function(a,
 c){a=new T(a);c({INTERNAL:{getUid:q(a.getUid,a),getToken:q(a.getIdToken,a),addAuthTokenListener:q(a.Ke,a),removeAuthTokenListener:q(a.Cf,a)}});return a},a,function(a,c){if("create"===a)try{c.auth()}catch(d){}});firebase.INTERNAL.extendNamespace({User:S})}else throw Error("Cannot find the firebase namespace; be sure to include firebase-app.js before this library.");})();}).call(this);
 }).call(typeof global !== undefined ? global : typeof self !== undefined ? self : typeof window !== undefined ? window : {});
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
 /* 18 */
@@ -2095,7 +2095,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE. */
 
 (function() {
-            var firebase = __webpack_require__(0);
+            var firebase = __webpack_require__(1);
             var g,aa=this;function n(a){return void 0!==a}function ba(){}function ca(a){a.Vb=function(){return a.Ye?a.Ye:a.Ye=new a}}
 function da(a){var b=typeof a;if("object"==b)if(a){if(a instanceof Array)return"array";if(a instanceof Object)return b;var c=Object.prototype.toString.call(a);if("[object Window]"==c)return"object";if("[object Array]"==c||"number"==typeof a.length&&"undefined"!=typeof a.splice&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("splice"))return"array";if("[object Function]"==c||"undefined"!=typeof a.call&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("call"))return"function"}else return"null";
 else if("function"==b&&"undefined"==typeof a.call)return"object";return b}function ea(a){return"array"==da(a)}function fa(a){var b=da(a);return"array"==b||"object"==b&&"number"==typeof a.length}function p(a){return"string"==typeof a}function ga(a){return"number"==typeof a}function ha(a){return"function"==da(a)}function ia(a){var b=typeof a;return"object"==b&&null!=a||"function"==b}function ja(a,b,c){return a.call.apply(a.bind,arguments)}
@@ -2580,8 +2580,8 @@ d;return d.Ya},{Reference:U,Query:X,Database:Pg,enableLogging:Sb,INTERNAL:Z,TEST
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createSubscribedComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_preact__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_preact__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_preact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_preact__);
 /*! ****************************************************************************
 Preact bindings for Small-Redux.
@@ -3005,7 +3005,7 @@ process.umask = function() { return 0; };
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(21)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(21)))
 
 /***/ }),
 /* 23 */
@@ -3137,8 +3137,8 @@ exports.clearImmediate = clearImmediate;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return reducer; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_small_redux__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Actions__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_small_redux__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Actions__ = __webpack_require__(8);
 
 
 const initialState = {
@@ -3194,11 +3194,11 @@ const reducer = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_small_redux__[
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Auth; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_preact__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Store_index__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_signIn__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__data_signOut__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_signIn__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__data_signOut__ = __webpack_require__(40);
 
 
 
@@ -3228,11 +3228,51 @@ class Auth extends __WEBPACK_IMPORTED_MODULE_1__Store_index__["a" /* SubscribedC
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Chat; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_preact__);
+
+class Chat extends __WEBPACK_IMPORTED_MODULE_0_preact__["Component"] {
+    render({ chat, user, liClass, onClick }) {
+        let showUser = user.uid !== chat.chatUsers[0].uid ? 0 : 1, showMessage = chat.messages.length !== 0;
+        if (showMessage) {
+            let messagesLength = chat.messages.length - 1;
+            let lastMessage = chat.messages[messagesLength];
+            let yourMessage = lastMessage.fromUser.uid === user.uid;
+            console.log(!lastMessage.isRead && !yourMessage);
+            return (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("li", { onClick: onClick, class: liClass },
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("img", { src: chat.chatUsers[showUser].photoURL, alt: "avatar", class: "avatar" }),
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("div", { class: "chatInfo" },
+                    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("p", { class: "messageUser" }, chat.chatUsers[showUser].name),
+                    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("p", { class: "messagetime" }, lastMessage.timestamp),
+                    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("div", { class: !lastMessage.isRead && !yourMessage ? "flag" : "" }),
+                    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("p", { class: "messageText" }, yourMessage ? "you: " + lastMessage.text : "" + lastMessage.text))));
+        }
+        else {
+            return (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("li", { onClick: onClick, class: liClass },
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("img", { src: chat.chatUsers[showUser].photoURL, alt: "avatar", class: "avatar" }),
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("p", { class: "messageUser" }, chat.chatUsers[showUser].name)));
+        }
+    }
+}
+
+
+
+/***/ }),
+/* 29 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatList; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_preact__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Store_index__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Store_creators__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Chat__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Store_creators__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__data_changeChatMessages__ = __webpack_require__(37);
+
+
+
 
 
 
@@ -3240,7 +3280,8 @@ class ChatList extends __WEBPACK_IMPORTED_MODULE_1__Store_index__["a" /* Subscri
     constructor() {
         super(...arguments);
         this.onChatClick = (id) => {
-            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__Store_index__["b" /* dispatch */])(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__Store_creators__["a" /* setCurrentChat */])({ id }));
+            this.render();
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__Store_index__["b" /* dispatch */])(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__Store_creators__["a" /* setCurrentChat */])({ id }));
         };
     }
     render() {
@@ -3249,26 +3290,30 @@ class ChatList extends __WEBPACK_IMPORTED_MODULE_1__Store_index__["a" /* Subscri
         if (!user || chats.length === 0) {
             return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("div", null, " ");
         }
+        this.readMessagesFromCurrentChat(currentChat.id);
         return (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("ul", null,
             __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("p", { class: "header" }, "Chats"),
             chats.map((chat) => {
-                let showUser = user.uid !== chat.chatUsers[0].uid ? 0 : 1, showMessage = chat.messages.length !== 0;
-                if (showMessage) {
-                    let messagesLength = chat.messages.length - 1;
-                    let lastMessage = chat.messages[messagesLength];
-                    return (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("li", { onClick: () => this.onChatClick(chat.id), class: chat.id === currentChat.id ? "currentChat" : "" },
-                        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("img", { src: chat.chatUsers[showUser].photoURL, alt: "avatar", class: "avatar" }),
-                        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("div", { class: "chatInfo" },
-                            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("p", { class: "messageUser" }, chat.chatUsers[showUser].name),
-                            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("p", { class: "messagetime" }, showMessage ? lastMessage.timestamp : ""),
-                            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("p", { class: "messageText" }, showMessage && lastMessage.fromUser.uid === user.uid ? "you: " + lastMessage.text : "" + lastMessage.text))));
-                }
-                else {
-                    return (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("li", { onClick: () => this.onChatClick(chat.id), class: chat.id === currentChat.id ? "currentChat" : "" },
-                        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("img", { src: chat.chatUsers[showUser].photoURL, alt: "avatar", class: "avatar" }),
-                        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("p", { class: "messageUser" }, chat.chatUsers[showUser].name)));
-                }
+                return (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_2__Chat__["a" /* default */], { chat: chat, user: user, liClass: chat.id === currentChat.id ? "currentChat" : "", onClick: () => this.onChatClick(chat.id) }));
             })));
+    }
+    readMessagesFromCurrentChat(id) {
+        const { chats, user } = this.state;
+        let messages = [];
+        if (!user)
+            return;
+        chats.forEach((chat, index) => {
+            if (chat.id == id)
+                chats[index].messages.forEach((message) => {
+                    messages.push({
+                        text: message.text,
+                        timestamp: message.timestamp,
+                        fromUser: message.fromUser,
+                        isRead: message.fromUser.uid !== user.uid ? true : message.isRead,
+                    });
+                });
+        });
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__data_changeChatMessages__["a" /* default */])(id, messages);
     }
     storeStateChanged({ chats, user, currentChat }) {
         if ((chats === this.state.chats)
@@ -3287,14 +3332,37 @@ class ChatList extends __WEBPACK_IMPORTED_MODULE_1__Store_index__["a" /* Subscri
 
 
 /***/ }),
-/* 29 */
+/* 30 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Message; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_preact__);
+
+class Message extends __WEBPACK_IMPORTED_MODULE_0_preact__["Component"] {
+    render({ userName, timestamp, text, yourMessage, isRead }) {
+        return (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("li", { class: yourMessage ? "yourMessage" : "" },
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("p", { class: "messageUser" }, userName),
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("p", { class: "messagetime" }, timestamp),
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("div", { class: !isRead && yourMessage ? "flag" : "" }),
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("p", { class: "messageText" }, text)));
+    }
+}
+
+
+
+/***/ }),
+/* 31 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MessageList; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_preact__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Store_index__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Message__ = __webpack_require__(30);
+
 
 
 class MessageList extends __WEBPACK_IMPORTED_MODULE_1__Store_index__["a" /* SubscribedComponent */] {
@@ -3303,10 +3371,7 @@ class MessageList extends __WEBPACK_IMPORTED_MODULE_1__Store_index__["a" /* Subs
         const { user } = this.state;
         if (!user)
             return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("div", null, " ");
-        return (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("ul", null, messages.map((message) => (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("li", { class: user.uid === message.fromUser.uid ? "yourMessage" : "" },
-            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("p", { class: "messageUser" }, message.fromUser.name),
-            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("p", { class: "messagetime" }, message.timestamp),
-            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("p", { class: "messageText" }, message.text))))));
+        return (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("ul", null, messages.map((message) => (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_2__Message__["a" /* default */], { userName: message.fromUser.name, timestamp: message.timestamp, text: message.text, yourMessage: user.uid === message.fromUser.uid, isRead: message.isRead })))));
     }
     storeStateChanged({ chats, currentChat, user }) {
         if ((chats === this.state.chats)
@@ -3329,15 +3394,15 @@ class MessageList extends __WEBPACK_IMPORTED_MODULE_1__Store_index__["a" /* Subs
 
 
 /***/ }),
-/* 30 */
+/* 32 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SendMessage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_preact__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Store_index__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_SendTextMessage__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_SendTextMessage__ = __webpack_require__(35);
 
 
 
@@ -3357,13 +3422,11 @@ class SendMessage extends __WEBPACK_IMPORTED_MODULE_1__Store_index__["a" /* Subs
     }
     render() {
         const { currentChat } = this.state;
-        return (currentChat.id !== ''
-            ?
-                (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("form", { action: '', onSubmit: this.onSubmit },
-                    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("input", { ref: this.refInput }),
-                    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("button", { type: "submit" }, "Send")))
-            :
-                (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("div", null)));
+        if (currentChat.id === '')
+            return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("div", null, " ");
+        return (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("form", { action: '', onSubmit: this.onSubmit },
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("input", { ref: this.refInput }),
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("button", { type: "submit" }, "Send")));
     }
     storeStateChanged({ user, currentChat }) {
         if ((user === this.state.user)
@@ -3377,15 +3440,36 @@ class SendMessage extends __WEBPACK_IMPORTED_MODULE_1__Store_index__["a" /* Subs
 
 
 /***/ }),
-/* 31 */
+/* 33 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return User; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_preact__);
+
+class User extends __WEBPACK_IMPORTED_MODULE_0_preact__["Component"] {
+    render({ onClick, name, photoURL }) {
+        return (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("li", { onClick: onClick },
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("img", { src: photoURL, alt: "avatar", class: "avatar" }),
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("p", { class: "userName" }, name)));
+    }
+}
+
+
+
+/***/ }),
+/* 34 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserList; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_preact__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Store_index__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_addChat__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_addChat__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__User__ = __webpack_require__(33);
+
 
 
 
@@ -3412,9 +3496,7 @@ class UserList extends __WEBPACK_IMPORTED_MODULE_1__Store_index__["a" /* Subscri
             return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("div", null, " ");
         return (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("ul", { class: "userList" },
             __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("p", { class: "header" }, "Contacts"),
-            filterUsers.map((client) => (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("li", { onClick: () => this.onUserClick(user === null ? '' : user.uid, client.uid) },
-                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("img", { src: client.photoURL, alt: "avatar", class: "avatar" }),
-                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("p", { class: "userName" }, client.name))))));
+            filterUsers.map((client) => (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_3__User__["a" /* default */], { name: client.name, photoURL: client.photoURL, onClick: () => this.onUserClick(user === null ? '' : user.uid, client.uid) })))));
     }
     storeStateChanged({ user, users, chats }) {
         if ((user === this.state.user)
@@ -3429,13 +3511,13 @@ class UserList extends __WEBPACK_IMPORTED_MODULE_1__Store_index__["a" /* Subscri
 
 
 /***/ }),
-/* 32 */
+/* 35 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export default */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SendTextMessage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__getMessagesRef__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__getMessagesRef__ = __webpack_require__(38);
 
 function SendTextMessage(currentChat, text, user) {
     const mesRef = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__getMessagesRef__["a" /* getMessagesRef */])(currentChat.id);
@@ -3450,6 +3532,7 @@ function SendTextMessage(currentChat, text, user) {
     mesRef.push().set({
         text,
         timestamp: datetime,
+        isRead: false,
         fromUser: {
             uid: user.uid,
             photoURL: user.email,
@@ -3461,13 +3544,13 @@ function SendTextMessage(currentChat, text, user) {
 
 
 /***/ }),
-/* 33 */
+/* 36 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export default */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return addChat; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__getChatsRef__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__getChatsRef__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getUsersRef__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Store_creators__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Store_index__ = __webpack_require__(2);
@@ -3503,13 +3586,32 @@ function addChat(currentUserId, otherUserId) {
 
 
 /***/ }),
-/* 34 */
+/* 37 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return changeChatMessages; });
+/* unused harmony export changeChatMessages */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__getChatsRef__ = __webpack_require__(4);
+
+function changeChatMessages(chatId, messages) {
+    const chatRef = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__getChatsRef__["b" /* getChatRef */])(chatId);
+    if (!chatRef) {
+        return;
+    }
+    chatRef.update({ messages: messages });
+}
+
+
+
+/***/ }),
+/* 38 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export default */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getMessagesRef; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase_app__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase_app__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_firebase_app__);
 
 function getMessagesRef(chatId) {
@@ -3522,12 +3624,12 @@ function getMessagesRef(chatId) {
 
 
 /***/ }),
-/* 35 */
+/* 39 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return signIn; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase_app__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase_app__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_firebase_app__);
 
 function signIn() {
@@ -3539,12 +3641,12 @@ function signIn() {
 
 
 /***/ }),
-/* 36 */
+/* 40 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return signOut; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase_app__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase_app__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_firebase_app__);
 
 function signOut() {
@@ -3554,12 +3656,12 @@ function signOut() {
 
 
 /***/ }),
-/* 37 */
+/* 41 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_preact__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_AppRoot__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_init__ = __webpack_require__(11);
@@ -3573,7 +3675,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["render"])(__WEBPACK_
 
 
 /***/ }),
-/* 38 */
+/* 42 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

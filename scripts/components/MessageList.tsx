@@ -2,6 +2,7 @@ import {h} from 'preact';
 import {SubscribedComponent} from '../Store/index';
 import State, {StateChat, StateCurrentChat, Message} from '../Store/State';
 import {User} from 'firebase/app';
+import MessageComponent from './Message';
 
 type MessageListProps = object;
 
@@ -28,11 +29,13 @@ class MessageList extends SubscribedComponent<State, MessageListProps, MessageLi
 					{
 						messages.map(
 							( message: Message ) => (
-								<li class={user.uid === message.fromUser.uid ? "yourMessage" : ""}>
-									<p class="messageUser">{message.fromUser.name}</p>
-									<p class="messagetime">{message.timestamp}</p>
-									<p class="messageText">{message.text}</p>
-								</li>
+								<MessageComponent
+									userName={message.fromUser.name}
+									timestamp={message.timestamp}
+									text={message.text}
+									yourMessage={user.uid === message.fromUser.uid}
+									isRead={message.isRead}
+								/>
 								),
 						)
 					}

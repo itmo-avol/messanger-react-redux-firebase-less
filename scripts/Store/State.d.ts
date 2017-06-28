@@ -27,6 +27,7 @@ interface Message
 	text: string;
 	timestamp: string;
 	fromUser: StateUser;
+	isRead: boolean;
 }
 
 interface StateCurrentChat 
