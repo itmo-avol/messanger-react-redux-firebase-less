@@ -3239,7 +3239,6 @@ class Chat extends __WEBPACK_IMPORTED_MODULE_0_preact__["Component"] {
             let messagesLength = chat.messages.length - 1;
             let lastMessage = chat.messages[messagesLength];
             let yourMessage = lastMessage.fromUser.uid === user.uid;
-            console.log(!lastMessage.isRead && !yourMessage);
             return (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("li", { onClick: onClick, class: liClass },
                 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("img", { src: chat.chatUsers[showUser].photoURL, alt: "avatar", class: "avatar" }),
                 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("div", { class: "chatInfo" },
@@ -3280,7 +3279,6 @@ class ChatList extends __WEBPACK_IMPORTED_MODULE_1__Store_index__["a" /* Subscri
     constructor() {
         super(...arguments);
         this.onChatClick = (id) => {
-            this.render();
             __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__Store_index__["b" /* dispatch */])(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__Store_creators__["a" /* setCurrentChat */])({ id }));
         };
     }

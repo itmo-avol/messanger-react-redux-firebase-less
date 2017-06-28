@@ -78,7 +78,6 @@ class ChatList extends SubscribedComponent<State, ChatListProps, ChatListState>
 
 	private onChatClick = ( id: string ): void =>
 	{
-		this.render();
 		dispatch( setCurrentChat( {id} ) );
 	}
 	

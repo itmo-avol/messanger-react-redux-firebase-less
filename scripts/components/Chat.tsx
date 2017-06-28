@@ -24,8 +24,6 @@ class Chat extends Component<ChatProps, ChatState>
 			let messagesLength: number = chat.messages.length - 1;
 			let lastMessage:Message = chat.messages[messagesLength ];
 			let yourMessage:boolean = lastMessage.fromUser.uid  === user.uid;
-			
-			console.log(!lastMessage.isRead && !yourMessage);
 
 			return	(
 			<li
