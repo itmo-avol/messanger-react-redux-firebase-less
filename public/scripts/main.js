@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "/scripts/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 41);
+/******/ 	return __webpack_require__(__webpack_require__.s = 42);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -731,26 +731,14 @@ function getUserRef(uid) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_preact__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Auth__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__UserList__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ChatList__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__SendMessage__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__MessageList__ = __webpack_require__(31);
-
-
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ShowIfAuth__ = __webpack_require__(33);
 
 
 
 function TodoApp() {
     return (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("div", { class: 'content' },
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_1__Auth__["a" /* default */], null),
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("div", { class: 'info' },
-            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("div", { class: 'left-side' },
-                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_3__ChatList__["a" /* default */], null),
-                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_2__UserList__["a" /* default */], null)),
-            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("div", { class: 'right-side' },
-                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_5__MessageList__["a" /* default */], null),
-                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_4__SendMessage__["a" /* default */], null)))));
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_2__ShowIfAuth__["a" /* default */], null)));
 }
 const AppRoot = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(TodoApp, null);
 
@@ -2580,7 +2568,7 @@ d;return d.Ya},{Reference:U,Query:X,Database:Pg,enableLogging:Sb,INTERNAL:Z,TEST
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createSubscribedComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_preact__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_preact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_preact__);
 /*! ****************************************************************************
@@ -3197,8 +3185,8 @@ const reducer = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_small_redux__[
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_preact__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Store_index__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_signIn__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__data_signOut__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_signIn__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__data_signOut__ = __webpack_require__(41);
 
 
 
@@ -3268,7 +3256,7 @@ class Chat extends __WEBPACK_IMPORTED_MODULE_0_preact__["Component"] {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Store_index__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Chat__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Store_creators__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__data_changeChatMessages__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__data_changeChatMessages__ = __webpack_require__(38);
 
 
 
@@ -3286,9 +3274,12 @@ class ChatList extends __WEBPACK_IMPORTED_MODULE_1__Store_index__["a" /* Subscri
         const chats = this.getVisibileChats();
         const { user, currentChat } = this.state;
         if (!user || chats.length === 0) {
-            return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("div", null, " ");
+            return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("ul", null, " ");
         }
         this.readMessagesFromCurrentChat(currentChat.id);
+        var scrollUl = document.getElementById("scroll");
+        if (scrollUl)
+            scrollUl.scrollTop = scrollUl.scrollHeight;
         return (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("ul", null,
             __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("p", { class: "header" }, "Chats"),
             chats.map((chat) => {
@@ -3368,8 +3359,8 @@ class MessageList extends __WEBPACK_IMPORTED_MODULE_1__Store_index__["a" /* Subs
         const messages = this.getVisibileMessages();
         const { user } = this.state;
         if (!user)
-            return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("div", null, " ");
-        return (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("ul", null, messages.map((message) => (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_2__Message__["a" /* default */], { userName: message.fromUser.name, timestamp: message.timestamp, text: message.text, yourMessage: user.uid === message.fromUser.uid, isRead: message.isRead })))));
+            return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("ul", null, " ");
+        return (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("ul", { id: "scroll" }, messages.map((message) => (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_2__Message__["a" /* default */], { userName: message.fromUser.name, timestamp: message.timestamp, text: message.text, yourMessage: user.uid === message.fromUser.uid, isRead: message.isRead })))));
     }
     storeStateChanged({ chats, currentChat, user }) {
         if ((chats === this.state.chats)
@@ -3400,7 +3391,7 @@ class MessageList extends __WEBPACK_IMPORTED_MODULE_1__Store_index__["a" /* Subs
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_preact__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Store_index__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_SendTextMessage__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_SendTextMessage__ = __webpack_require__(36);
 
 
 
@@ -3442,6 +3433,47 @@ class SendMessage extends __WEBPACK_IMPORTED_MODULE_1__Store_index__["a" /* Subs
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShowIfAuth; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_preact__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Store_index__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__UserList__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ChatList__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__SendMessage__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__MessageList__ = __webpack_require__(31);
+
+
+
+
+
+
+class ShowIfAuth extends __WEBPACK_IMPORTED_MODULE_1__Store_index__["a" /* SubscribedComponent */] {
+    render() {
+        if (this.state.user)
+            return (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("div", { class: 'info' },
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("div", { class: 'left-side' },
+                    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_3__ChatList__["a" /* default */], null),
+                    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_2__UserList__["a" /* default */], null)),
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("div", { class: 'right-side' },
+                    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_5__MessageList__["a" /* default */], null),
+                    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_4__SendMessage__["a" /* default */], null))));
+        return (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("div", { class: 'info' }));
+    }
+    storeStateChanged({ user }) {
+        if (user === this.state.user) {
+            return;
+        }
+        this.setState({ user });
+    }
+}
+
+
+
+/***/ }),
+/* 34 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return User; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_preact__);
@@ -3457,7 +3489,7 @@ class User extends __WEBPACK_IMPORTED_MODULE_0_preact__["Component"] {
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3465,8 +3497,8 @@ class User extends __WEBPACK_IMPORTED_MODULE_0_preact__["Component"] {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_preact__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Store_index__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_addChat__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__User__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_addChat__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__User__ = __webpack_require__(34);
 
 
 
@@ -3491,7 +3523,7 @@ class UserList extends __WEBPACK_IMPORTED_MODULE_1__Store_index__["a" /* Subscri
         const { user } = this.state;
         const filterUsers = this.filterUsers();
         if (!user || filterUsers.length === 0)
-            return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("div", null, " ");
+            return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("ul", null, " ");
         return (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("ul", { class: "userList" },
             __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])("p", { class: "header" }, "Contacts"),
             filterUsers.map((client) => (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(__WEBPACK_IMPORTED_MODULE_3__User__["a" /* default */], { name: client.name, photoURL: client.photoURL, onClick: () => this.onUserClick(user === null ? '' : user.uid, client.uid) })))));
@@ -3509,13 +3541,13 @@ class UserList extends __WEBPACK_IMPORTED_MODULE_1__Store_index__["a" /* Subscri
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export default */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SendTextMessage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__getMessagesRef__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__getMessagesRef__ = __webpack_require__(39);
 
 function SendTextMessage(currentChat, text, user) {
     const mesRef = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__getMessagesRef__["a" /* getMessagesRef */])(currentChat.id);
@@ -3533,7 +3565,7 @@ function SendTextMessage(currentChat, text, user) {
         isRead: false,
         fromUser: {
             uid: user.uid,
-            photoURL: user.email,
+            photoURL: user.photoURL,
             name: user.displayName,
         },
     });
@@ -3542,7 +3574,7 @@ function SendTextMessage(currentChat, text, user) {
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3584,7 +3616,7 @@ function addChat(currentUserId, otherUserId) {
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3603,7 +3635,7 @@ function changeChatMessages(chatId, messages) {
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3622,7 +3654,7 @@ function getMessagesRef(chatId) {
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3639,7 +3671,7 @@ function signIn() {
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3654,7 +3686,7 @@ function signOut() {
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3673,7 +3705,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_preact__["render"])(__WEBPACK_
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

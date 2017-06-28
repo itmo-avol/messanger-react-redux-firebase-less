@@ -22,10 +22,10 @@ class MessageList extends SubscribedComponent<State, MessageListProps, MessageLi
 		const {user} = this.state;
 
 		if (!user) 
-			return <div> </div>;
+			return <ul> </ul>;
 		
 		return (
-				<ul>
+				<ul id="scroll">
 					{
 						messages.map(
 							( message: Message ) => (

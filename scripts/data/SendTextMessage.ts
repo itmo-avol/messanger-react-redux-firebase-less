@@ -28,7 +28,7 @@ function SendTextMessage( currentChat: StateCurrentChat, text: string, user: Use
 			isRead: false,
 			fromUser: {
 				uid: user.uid,
-				photoURL: user.email,
+				photoURL: user.photoURL,
 				name: user.displayName,
 			},
 		} as Partial<Message>,

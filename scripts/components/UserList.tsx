@@ -23,7 +23,7 @@ class UserList extends SubscribedComponent<State, UserListProps, UserListState>
 		const filterUsers = this.filterUsers();
 
 		if (!user || filterUsers.length === 0) 
-			return <div> </div>;
+			return <ul> </ul>;
 
 		return (
 			<ul class="userList">

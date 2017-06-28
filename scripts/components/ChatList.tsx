@@ -26,10 +26,15 @@ class ChatList extends SubscribedComponent<State, ChatListProps, ChatListState>
 
 		if (!user || chats.length === 0)
 		{
-			return <div> </div>;
+			return <ul> </ul>;
 		}
 
 		this.readMessagesFromCurrentChat ( currentChat.id );
+
+		var scrollUl = document.getElementById("scroll");
+
+		if (scrollUl)
+			scrollUl.scrollTop = scrollUl.scrollHeight;
 		
 		return (
 			<ul>
