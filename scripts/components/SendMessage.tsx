@@ -2,7 +2,7 @@ import {h} from 'preact';
 import {SubscribedComponent} from '../Store/index';
 import State, {StateCurrentChat} from '../Store/State';
 import {User} from 'firebase/app';
-import {SendTextMessage} from '../data/SendTextMessage';
+import {sendTextMessage} from '../data/sendTextMessage';
 
 type SendMessageProps = object;
 
@@ -49,7 +49,7 @@ class SendMessage extends SubscribedComponent<State, SendMessageProps, SendMessa
 		event.preventDefault();
 		
 		if ( this.input.value !== "" )
-			SendTextMessage( this.state.currentChat, this.input.value, this.state.user );
+			sendTextMessage( this.state.currentChat, this.input.value, this.state.user );
 		
 		this.input.value = '';
 		return false;

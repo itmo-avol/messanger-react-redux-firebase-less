@@ -2,7 +2,7 @@ import {h} from 'preact';
 import {SubscribedComponent} from '../Store/index';
 import State, {StateChat, StateCurrentChat, Message} from '../Store/State';
 import {User} from 'firebase/app';
-import ChatComponent from './Chat';
+import Chat from './Chat';
 import {setCurrentChat} from '../Store/creators';
 import {dispatch} from '../Store/index';
 import changeChatMessages from '../data/changeChatMessages';
@@ -43,7 +43,7 @@ class ChatList extends SubscribedComponent<State, ChatListProps, ChatListState>
 					chats.map(
 						( chat: StateChat ) => {
 							return (
-								<ChatComponent 
+								<Chat 
 									chat={chat}
 									user={user}
 									liClass={chat.id === currentChat.id ? "currentChat" : ""}

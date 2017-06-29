@@ -3256,7 +3256,7 @@ class Chat extends __WEBPACK_IMPORTED_MODULE_0_preact__["Component"] {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Store_index__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Chat__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Store_creators__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__data_changeChatMessages__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__data_changeChatMessages__ = __webpack_require__(37);
 
 
 
@@ -3391,7 +3391,7 @@ class MessageList extends __WEBPACK_IMPORTED_MODULE_1__Store_index__["a" /* Subs
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_preact__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Store_index__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_SendTextMessage__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_sendTextMessage__ = __webpack_require__(39);
 
 
 
@@ -3404,7 +3404,7 @@ class SendMessage extends __WEBPACK_IMPORTED_MODULE_1__Store_index__["a" /* Subs
         this.onSubmit = (event) => {
             event.preventDefault();
             if (this.input.value !== "")
-                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__data_SendTextMessage__["a" /* SendTextMessage */])(this.state.currentChat, this.input.value, this.state.user);
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__data_sendTextMessage__["a" /* sendTextMessage */])(this.state.currentChat, this.input.value, this.state.user);
             this.input.value = '';
             return false;
         };
@@ -3497,7 +3497,7 @@ class User extends __WEBPACK_IMPORTED_MODULE_0_preact__["Component"] {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_preact__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Store_index__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_addChat__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_addChat__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__User__ = __webpack_require__(34);
 
 
@@ -3546,39 +3546,6 @@ class UserList extends __WEBPACK_IMPORTED_MODULE_1__Store_index__["a" /* Subscri
 
 "use strict";
 /* unused harmony export default */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SendTextMessage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__getMessagesRef__ = __webpack_require__(39);
-
-function SendTextMessage(currentChat, text, user) {
-    const mesRef = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__getMessagesRef__["a" /* getMessagesRef */])(currentChat.id);
-    if (!mesRef || !user || !currentChat) {
-        return;
-    }
-    const currentdate = new Date();
-    const datetime = "" +
-        +currentdate.getHours() + ":"
-        + currentdate.getMinutes() + ":"
-        + currentdate.getSeconds();
-    mesRef.push().set({
-        text,
-        timestamp: datetime,
-        isRead: false,
-        fromUser: {
-            uid: user.uid,
-            photoURL: user.photoURL,
-            name: user.displayName,
-        },
-    });
-}
-
-
-
-/***/ }),
-/* 37 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export default */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return addChat; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__getChatsRef__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getUsersRef__ = __webpack_require__(9);
@@ -3616,7 +3583,7 @@ function addChat(currentUserId, otherUserId) {
 
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3635,7 +3602,7 @@ function changeChatMessages(chatId, messages) {
 
 
 /***/ }),
-/* 39 */
+/* 38 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3649,6 +3616,39 @@ function getMessagesRef(chatId) {
         return null;
     }
     return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_firebase_app__["database"])().ref(`/chats/${chatId}/messages`);
+}
+
+
+
+/***/ }),
+/* 39 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export default */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return sendTextMessage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__getMessagesRef__ = __webpack_require__(38);
+
+function sendTextMessage(currentChat, text, user) {
+    const mesRef = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__getMessagesRef__["a" /* getMessagesRef */])(currentChat.id);
+    if (!mesRef || !user || !currentChat) {
+        return;
+    }
+    const currentdate = new Date();
+    const datetime = "" +
+        +currentdate.getHours() + ":"
+        + currentdate.getMinutes() + ":"
+        + currentdate.getSeconds();
+    mesRef.push().set({
+        text,
+        timestamp: datetime,
+        isRead: false,
+        fromUser: {
+            uid: user.uid,
+            photoURL: user.photoURL,
+            name: user.displayName,
+        },
+    });
 }
 
 

@@ -3,7 +3,7 @@ import {getMessagesRef} from './getMessagesRef';
 import {User} from 'firebase/app';
 import {StateCurrentChat} from '../Store/State';
 
-function SendTextMessage( currentChat: StateCurrentChat, text: string, user: User | null ): void
+function sendTextMessage( currentChat: StateCurrentChat, text: string, user: User | null ): void
 {
 	const mesRef = getMessagesRef( currentChat.id );
 	
@@ -36,6 +36,6 @@ function SendTextMessage( currentChat: StateCurrentChat, text: string, user: Use
 }
 
 export {
-	SendTextMessage as default,
-	SendTextMessage
+	sendTextMessage as default,
+	sendTextMessage
 };
